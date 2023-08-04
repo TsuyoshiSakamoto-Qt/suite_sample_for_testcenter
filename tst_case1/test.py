@@ -5,4 +5,9 @@ import names
 
 def main():
     startApplication("testQML")
-    mouseClick(waitForObject(names.hello_World_text_set_Button), 101, 20, Qt.LeftButton)
+    test.compare(str(waitForObjectExists(names.hello_World_clicked_Text).text), "clicked!")
+    
+    mouseClick(waitForObject(names.hello_World_push_me_Button), Qt.LeftButton)
+    test.compare(str(waitForObjectExists(names.hello_World_clicked_Text).text), "clicked!")
+
+    snooze(2)
